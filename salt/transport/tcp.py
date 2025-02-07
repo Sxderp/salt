@@ -1295,6 +1295,9 @@ class PublishServer(salt.transport.base.DaemonizedPublishServer):
     Tornado based TCP PublishServer
     """
 
+    # Required from DaemonizedPublishServer
+    support_ssl = True
+
     # TODO: opts!
     # Based on default used in tornado.netutil.bind_sockets()
     backlog = 128
@@ -1316,8 +1319,8 @@ class PublishServer(salt.transport.base.DaemonizedPublishServer):
         pull_path=None,
         pull_path_perms=0o600,
         pub_path_perms=0o600,
-        ssl=None,
         started=None,
+        ssl=None,
     ):
         self.opts = opts
         self.pub_sock = None
